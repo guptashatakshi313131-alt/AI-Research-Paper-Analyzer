@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In | AI Research Paper Analyzer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Minimal Nav -->
+  <nav class="navbar navbar-custom py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <i class="bi bi-cpu-fill text-primary fs-4"></i>
+        <span>PaperAnalyzer</span>.ai
+      </a>
+      <button class="btn btn-outline-custom theme-toggle-btn px-3" type="button" aria-label="Toggle Theme">
+        <i class="bi bi-sun-fill"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Login Main Content -->
+  <main class="container my-auto py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5 col-xl-4">
+        <div class="custom-card p-4 p-sm-5">
+          <div class="text-center mb-4">
+            <h3 class="fw-bold mb-1">Welcome Back</h3>
+            <p class="text-muted small">Sign in to access your research workspace</p>
+          </div>
+
+          <!-- Alert Container for Dynamic Messages -->
+          <div id="authAlert" class="alert d-none" role="alert"></div>
+
+          <form id="loginForm" novalidate>
+            <div class="mb-3">
+              <label for="email" class="form-label text-muted small fw-medium">Email Address</label>
+              <div class="input-group">
+                <span class="input-group-text bg-transparent border-end-0 text-muted"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control border-start-0 ps-0" id="email" placeholder="name@university.edu" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label for="password" class="form-label text-muted small fw-medium mb-0">Password</label>
+                <a href="forgot-password.html" class="small text-primary text-decoration-none">Forgot password?</a>
+              </div>
+              <div class="input-group">
+                <span class="input-group-text bg-transparent border-end-0 text-muted"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control border-start-0 border-end-0 ps-0" id="password" placeholder="••••••••" required>
+                <button class="btn btn-outline-custom border-start-0 toggle-password" type="button">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-check mb-4">
+              <input class="form-check-input" type="checkbox" id="rememberMe">
+              <label class="form-check-label small text-muted" for="rememberMe">
+                Remember me for 30 days
+              </label>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn btn-primary-custom w-100 py-2 fw-semibold">
+              <span>Sign In</span>
+              <span class="spinner-border spinner-border-sm d-none ms-2" role="status" aria-hidden="true"></span>
+            </button>
+          </form>
+
+          <div class="text-center mt-4 pt-3 border-top border-secondary-subtle">
+            <p class="small text-muted mb-0">Don't have an account? <a href="register.html" class="text-primary text-decoration-none fw-semibold">Create one</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Core Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
