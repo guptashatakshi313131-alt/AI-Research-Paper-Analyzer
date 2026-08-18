@@ -1,0 +1,203 @@
+/* frontend/css/style.css */
+
+/* Custom Navbar Styling */
+.navbar {
+  background-color: var(--bg-nav) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-link {
+  color: var(--text-muted) !important;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary) !important;
+}
+
+/* Card Styling */
+.custom-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.custom-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Button Overrides */
+.btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+}
+
+.btn-outline-custom {
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.btn-outline-custom:hover {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+/* frontend/css/style.css */
+
+/* --- General Layout --- */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  overflow-x: hidden;
+}
+
+/* --- Glassmorphism Navbar --- */
+.navbar-custom {
+  background-color: var(--bg-nav) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: var(--text-main) !important;
+  letter-spacing: -0.5px;
+}
+
+.navbar-brand span {
+  color: var(--primary);
+}
+
+.nav-link {
+  color: var(--text-muted) !important;
+  font-weight: 500;
+  margin: 0 4px;
+  transition: var(--transition);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary) !important;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  padding: 100px 0 60px 0;
+  background: radial-gradient(circle at 50% 20%, var(--primary-light) 0%, transparent 60%);
+}
+
+.badge-pill {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border-radius: 50px;
+  border: 1px solid var(--primary);
+}
+
+.hero-title {
+  font-weight: 800;
+  font-size: 3.2rem;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* --- Component Cards --- */
+.feature-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  transition: var(--transition);
+  height: 100%;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* --- Buttons --- */
+.btn-primary-custom {
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--primary-hover);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+}
+
+.btn-outline-custom {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.btn-outline-custom:hover {
+  background-color: var(--bg-card);
+  border-color: var(--text-muted);
+  color: var(--text-main);
+}
+
+/* --- Footer --- */
+.footer {
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 40px 0 20px 0;
+}

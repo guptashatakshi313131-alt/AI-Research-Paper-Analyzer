@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | AI Research Paper Analyzer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Main Navigation -->
+  <nav class="navbar navbar-expand-lg sticky-top navbar-custom">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <i class="bi bi-cpu-fill text-primary fs-4"></i>
+        <span>PaperAnalyzer</span>.ai
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="help.html">Help & FAQ</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-outline-custom theme-toggle-btn px-3" type="button" aria-label="Toggle Theme">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+          <a href="login.html" class="btn btn-outline-custom" id="authNavBtn">Log In</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Workspace Container -->
+  <main class="container my-4 flex-grow-1">
+    
+    <!-- Upload Dropzone Section -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10">
+        <div class="custom-card p-4 p-md-5 text-center border-dashed" id="dropzone">
+          <input type="file" id="fileInput" accept=".pdf" class="d-none">
+          <div class="mb-3">
+            <i class="bi bi-cloud-arrow-up-fill text-primary display-4"></i>
+          </div>
+          <h4 class="fw-bold mb-2">Upload Research Paper (PDF)</h4>
+          <p class="text-muted small mb-4">Drag and drop your academic PDF here, or click to browse files (Max 50MB)</p>
+          <button class="btn btn-primary-custom px-4 py-2" id="browseBtn">
+            <i class="bi bi-folder2-open me-2"></i>Select File
+          </button>
+
+          <!-- Upload Progress Area -->
+          <div id="uploadProgress" class="mt-4 d-none text-start">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="small fw-medium" id="fileNameText">paper.pdf</span>
+              <span class="small text-muted" id="progressPercent">0%</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div id="progressBar" class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Section (Hidden until file is processed) -->
+    <div id="resultsSection" class="d-none">
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <h3 class="fw-bold mb-0" id="paperTitle">Analysis Results</h3>
+        <button class="btn btn-outline-custom btn-sm" id="exportBtn">
+          <i class="bi bi-download me-1"></i> Export Summary
+        </button>
+      </div>
+
+      <div class="row g-4">
+        <!-- Key Metrics Cards -->
+        <div class="col-md-4">
+          <div class="custom-card p-4 text-center">
+            <h6 class="text-muted small text-uppercase fw-semibold mb-2">Primary Domain</h6>
+            <h4 class="fw-bold text-primary mb-0" id="metricDomain">Deep Learning</h4>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="custom-card p-4 text-center">
+            <h6 class="text-muted small text-uppercase fw-semibold mb-2">Confidence Score</h6>
+            <h4 class="fw-bold text-success mb-0" id="metricScore">98.4%</h4>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="custom-card p-4 text-center">
+            <h6 class="text-muted small text-uppercase fw-semibold mb-2">Citations Found</h6>
+            <h4 class="fw-bold text-info mb-0" id="metricCitations">42 References</h4>
+          </div>
+        </div>
+
+        <!-- Abstract & Key Takeaways -->
+        <div class="col-12">
+          <div class="custom-card p-4">
+            <h5 class="fw-bold mb-3"><i class="bi bi-file-text me-2 text-primary"></i>Executive Summary</h5>
+            <p class="text-muted mb-0" id="paperSummary">
+              This paper presents an optimized neural architecture designed for high-throughput language parsing. The authors evaluate benchmark accuracy against standard Transformer baselines, demonstrating a 14% improvement in execution latency with minimal loss in precision.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer mt-auto py-3">
+    <div class="container text-center">
+      <p class="mb-0 text-muted">&copy; 2026 PaperAnalyzer AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
